@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "eslint": "^9.1.1",
     "request": "^2.88.2"
   },
   "repository": {
@@ -28,5 +27,10 @@
   "homepage": "https://github.com/PKUPI/heavens-above#readme",
   "engines": {
     "node": ">=12.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.0.0"
   }
 }
