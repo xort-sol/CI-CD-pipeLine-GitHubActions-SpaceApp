@@ -1,0 +1,21 @@
+name: Scheduled Tasks
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at midnight every day
+
+jobs:
+  run_daily_tasks:
+    name: Run Daily Tasks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add your desired steps here
+      # For example:
+      - name: Run maintenance script
+        run: node maintenance.js
+
+      # You can add more steps as needed
