@@ -1,0 +1,48 @@
+name: Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  code-review:
+    name: Code Review
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run linting
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run code analysis
+        run: npm run analyze
+
+      - name: Scan for vulnerabilities
+        run: npm audit --json
+        continue-on-error: true
+
+      - name: Publish code quality report
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-quality-report
+          path: ./reports/code-quality
+
+      - name: Publish vulnerability report
+        uses: actions/upload-artifact@v2
+        with:
+          name: vulnerability-report
+          path: ./reports/vulnerabilities
