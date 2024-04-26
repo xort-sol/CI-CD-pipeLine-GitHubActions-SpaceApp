@@ -15,7 +15,8 @@
     "http-signature": "^1.4.0",
     "jekyll": "^3.0.0-beta1",
     "request": "^2.88.2",
-    "vercel": "^34.1.2"
+    "vercel": "^32.3.0",
+    "vuepress": "^1.9.10"
   },
   "repository": {
     "type": "git",
