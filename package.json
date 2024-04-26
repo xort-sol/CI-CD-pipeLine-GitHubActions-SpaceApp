@@ -5,12 +5,16 @@
   "description": "Scripts for scraping the Heavens Above website.",
   "main": "run.js",
   "scripts": {
-    "start": "node run.js"
+    "start": "node run.js",
+    "build:docs": "vuepress build docs"
   },
   "dependencies": {
+    "build": "^0.1.4",
     "cheerio": "^1.0.0-rc.3",
+    "jekyll": "^3.0.0-beta1",
     "request": "^2.88.2",
-    "vercel": "^34.1.2"
+    "vercel": "^34.1.2",
+    "vuepress": "^1.9.10"
   },
   "repository": {
     "type": "git",

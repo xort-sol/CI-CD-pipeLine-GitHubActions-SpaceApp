@@ -1,33 +1,32 @@
 name: Documentation Deployment
 
 on:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy Documentation
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build documentation
-        run: mkdocs build --clean
+    - name: Build documentation
+      run: npm run build:docs  # Adjust this to your build script
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.3  # Adjust this for other hosting platforms
+      with:
+        branch: gh-pages  # Adjust this to your deployment branch
+        folder: docs  # Adjust this to your documentation directory
+        token: ${{ secrets.GITHUB_TOKEN }}
