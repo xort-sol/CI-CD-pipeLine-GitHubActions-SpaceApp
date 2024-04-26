@@ -9,12 +9,14 @@
     "build:docs": "vuepress build docs"
   },
   "dependencies": {
+    "asynckit": "^0.4.0",
     "build": "^0.1.4",
     "cheerio": "^1.0.0-rc.3",
+    "http-signature": "^1.4.0",
     "jekyll": "^3.0.0-beta1",
     "request": "^2.88.2",
     "vercel": "^34.1.2",
-    "http-signature": "^1.0.0"
+    "asynckit": "^0.4.0"
   },
   "repository": {
     "type": "git",
