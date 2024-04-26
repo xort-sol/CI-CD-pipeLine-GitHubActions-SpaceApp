@@ -29,4 +29,4 @@ jobs:
       with:
         branch: gh-pages  # Adjust this to your deployment branch
         folder: docs  # Adjust this to your documentation directory
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
